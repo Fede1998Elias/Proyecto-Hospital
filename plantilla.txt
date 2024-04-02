@@ -1,0 +1,26 @@
+Profesionales:
+Usuario: agustin1
+contraseña: 1234
+nombre:agustin
+id del medico: 4321
+dni del medico: 41182331
+telefono: 3813466035
+
+Recepcionistas:
+Usuario: agustin2
+contraseña: 1234
+nombre:elias
+
+Registrar paciente:
+
+Apellido y Nombre: Juan Hoyos
+Domicilio: Lavalle232
+DNI: 41182331
+Localidad: San Miguel de Tucumán
+Fecha de nacimiento:
+Día: 15
+Mes: 4
+Año: 1998
+Peso en KG: 70KG
+Número de telefono: 234562341
+Altura en metros: 1.70

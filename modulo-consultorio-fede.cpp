@@ -63,7 +63,7 @@ main(){
      int num;
      
      
-    PUNTEROUSE = fopen("Usuarios.dat","ab"); /* clientes*/
+    PUNTEROUSE = fopen("Usuarios.dat","ab"); 
 	fclose(PUNTEROUSE);
 	PUNTEROPRO = fopen("Profesionales.dat","ab");
 	fclose(PUNTEROPRO);
@@ -92,8 +92,7 @@ do
 					system("cls");
 					printf("\nUsted ha elegido la opcion 'Iniciar Sesion'\n");
 				    PUNTEROUSE= fopen("Usuarios.dat","rb");
-					iniciarSesion(PUNTEROUSE,inicio); /*llamado a la función va sin tipo de dato para el booleano, el tipo de dato de los 
-					                                   parametros solo va en prototipo y declaración de la función. */ 
+					iniciarSesion(PUNTEROUSE,inicio); 
 					fclose(PUNTEROUSE);
 					system("pause");
 			        break;
@@ -153,10 +152,10 @@ void iniciarSesion(FILE *PUNTEROUSE ,bool &inicio){
 	
 PUNTEROUSE = fopen("Usuarios.dat","rb"); /*rb: leer y comparar datos unicamente.*/	
 
- fread(&use,sizeof(usuarios),1,PUNTEROUSE); /*ME POSICIONO PARA LEER EL ARCHIVO*/
+ fread(&use,sizeof(usuarios),1,PUNTEROUSE); 
 	while(!feof(PUNTEROUSE))
 	{
-		if(strcmp(use.Usuario,nombreDeUsuario)==0)/*==0 es true*/  /*	Compara cadenas de caracteres*/
+		if(strcmp(use.Usuario,nombreDeUsuario)==0)
 		{
 			if(strcmp(use.Contrasenia,clave) == 0)      
 			{
@@ -198,16 +197,16 @@ void listado(FILE *PUNTEROTURNO,FILE *PUNTEROPAC)
 	printf("Pacientes para ser atendidos: ");
 	printf("\n\n===========================================");
 	
-	fread(&paciente,sizeof(turnos),1,PUNTEROTURNO); /*puntero turno*/
+	fread(&paciente,sizeof(turnos),1,PUNTEROTURNO); 
 	while(!feof(PUNTEROTURNO))
     {
     		if(buscar.dia == paciente.fecha.dia && buscar.mes == paciente.fecha.mes && buscar.anio == paciente.fecha.anio)
     		{
-    			aux=paciente.dniPaciente; /*paciente es turno en mi caso*/
-    			fread(&registro,sizeof(pacientes),1,PUNTEROPAC); /*puntero2 es paciente*/
+    			aux=paciente.dniPaciente; 
+    			fread(&registro,sizeof(pacientes),1,PUNTEROPAC); 
     			while(!feof(PUNTEROPAC))
     			{
-    				if(registro.dniPac == aux) /*registro es cliente o paciente en mi caso*/
+    				if(registro.dniPac == aux) 
     				{
     					printf("\nApellido y nombres: ");
     					puts(registro.apeNom);

@@ -56,14 +56,14 @@ void listar(FILE *PUNTEROPRO,FILE *PUNTEROTURNO);
 main()
 {
 	system("COLOR 0A");
-	/*setlocale(LC_ALL,"spanish");*/
+
 	
      bool inicio=false;
      int num;
      
 	FILE *PUNTEROPRO,*PUNTEROTURNO,*PUNTERORECEP,*PUNTEROUSE,*PUNTEROPAC;
 	
-    PUNTEROTURNO = fopen("Turnos.dat","ab"); /*para que los abre y los cierra sin usarlos?*/
+    PUNTEROTURNO = fopen("Turnos.dat","ab"); 
 	fclose(PUNTEROTURNO);
     PUNTEROPAC=fopen("Pacientes.dat","ab");
 	fclose(PUNTEROPAC);
@@ -98,7 +98,7 @@ main()
 					if(inicio == true)
 					{
 						printf("\nUsted ha elegido la opcion 'Registrar Paciente'\n");
-				    PUNTEROPAC =fopen("Pacientes.dat","ab"); /*PREGUNTAR POR EL MODO ab y no rb*/
+				    PUNTEROPAC =fopen("Pacientes.dat","ab"); 
 				    registrarPaciente(PUNTEROPAC);
 				    fclose(	PUNTEROPAC);
 				    system("pause");
@@ -116,7 +116,7 @@ main()
 					if(inicio == true)
 					{
 						printf("\nUsted ha elegido la opcion 'Registrar Turno'\n");
-						PUNTEROTURNO=fopen("Turnos.dat","ab"); /*PREGUNTAR POR EL MODO ab y no rb*/
+						PUNTEROTURNO=fopen("Turnos.dat","ab"); 
 						registrarTurno(PUNTEROTURNO);
 						fclose(PUNTEROTURNO);
 						system("pause");
@@ -175,21 +175,21 @@ void iniciarSesion(FILE *PUNTERORECEP, bool &inicio){
   
 
 printf("\nNombre de usuario: ");
-_flushall();//limpiamos el bufer 	
-gets(nombreDeUsuario); /*campturamos el dato con gets*/
+_flushall();
+gets(nombreDeUsuario); 
 
 printf("Contraseña: \n");
 _flushall();
 gets(clave);
 
  /*rb: leer y comparar datos unicamente.*/	
-/*PROBAR SI NO ANDA ABRIENDO EL ARCHIVO.*/
-PUNTERORECEP = fopen("Recepcionistas.dat","rb");  /*PORQUE ME LO TOMA SI ELIMINO ESTA LINEA DE CODIGO */
+
+PUNTERORECEP = fopen("Recepcionistas.dat","rb");  
 fread(&use,sizeof(usuarios),1,PUNTERORECEP);
     inicio=false;
-	while(!feof(PUNTERORECEP)){ /*!feof(PUNTEROUSE) mientras no sea fin de archivo del puntero*/
+	while(!feof(PUNTERORECEP)){ 
 		
-		if(strcmp(use.Usuario,nombreDeUsuario)==0){ /*Comparamos cadenas de caracteres nombreDeUsuario es el nombre que ingresamos y use.Usuario es el dato que comparamos del archivo*/
+		if(strcmp(use.Usuario,nombreDeUsuario)==0){ 
 		    if(strcmp(use.Contrasenia,clave) == 0)      
 			{
 				inicio=true;
@@ -209,7 +209,7 @@ fread(&use,sizeof(usuarios),1,PUNTERORECEP);
 
 void registrarPaciente(	FILE *PUNTEROPAC){  
    	char salida='s';
-	    struct pacientes pac; /*PORQUE ESTE EL STRUCT O NO ME ANDA IGUAL CAMBIA ALGO?*/
+	    struct pacientes pac; 
 	while(salida=='s'){
 
 	printf("\nREGISTRO DE PACIENTES");
@@ -222,7 +222,7 @@ void registrarPaciente(	FILE *PUNTEROPAC){
 	gets(pac.domicilio);
 	printf("\nIngrese el DNI: ");
 	_flushall();
-	scanf("%d",&pac.dniPac); /*scanf porque es un valor*/
+	scanf("%d",&pac.dniPac); 
 	printf("\nIngrese la localidad: ");
 	_flushall();
 	gets(pac.localidad);
@@ -247,7 +247,7 @@ void registrarPaciente(	FILE *PUNTEROPAC){
 	scanf("%f",&pac.altura);
 	_flushall();  
 			
-	fwrite(&pac,sizeof(pacientes),1,PUNTEROPAC); /*escribo los cambios*/
+	fwrite(&pac,sizeof(pacientes),1,PUNTEROPAC); 
 	
 	printf("\nPACIENTE REGISTRADO CORRECTAMENTE!\n\n");
 	system("cls");
@@ -270,7 +270,7 @@ void registrarTurno(FILE *PUNTEROTURNO)
 	
 	FILE *PUNTEROPRO;
 	
-	PUNTEROPRO=fopen("Profesionales.dat","rb"); /*lectura escritura para comprara datos*/
+	PUNTEROPRO=fopen("Profesionales.dat","rb"); 
 	
 	printf("\nIngrese id del especialista: ");
 	scanf("%d",&buscar);
@@ -295,7 +295,7 @@ void registrarTurno(FILE *PUNTEROTURNO)
 	{	
 		FILE *PUNTEROPAC;
 		int bandera1=0;
-		PUNTEROPAC = fopen("Pacientes.dat","rb"); /*clientes=pacientes*/
+		PUNTEROPAC = fopen("Pacientes.dat","rb"); 
 		
 		while(bandera1==0)
 		{

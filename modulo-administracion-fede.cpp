@@ -432,7 +432,7 @@ void ranking()
     for (int i = 0; i < numPro; i++)
     {
         printf("\nPuesto %d:", i + 1);
-        printf("\nId del profesional: %d", regAtenciones[i].idProfesional); //necesito solamente mostrar el id del medico  y las atenciones unicamente. 
+        printf("\nId del profesional: %d", regAtenciones[i].idProfesional); 
         printf("\nCantidad de atenciones: %d", regAtenciones[i].cantidad);
         printf("\n=============================================");
     }

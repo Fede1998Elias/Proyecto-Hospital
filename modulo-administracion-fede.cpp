@@ -367,10 +367,10 @@ void atenciones(FILE *PUNTEROTUR)
 
 void ranking()
 {
-    FILE *arch; /*arch PUNTEROTUR*/
+    FILE *arch; 
     profesionales regPro[50];
     turnos regTurnos[50];
-    Atenciones regAtenciones[50];   //atenciones tiene 2 campos  int idProfesional; int cantidad
+    Atenciones regAtenciones[50];  
     Atenciones auxiliar;
     int numPro = 0, numTurnos = 0, contador = 0;
 
@@ -379,7 +379,7 @@ void ranking()
     if (arch == NULL)
     {
         printf("\nEl archivo 'Profesionales.dat' no fue creado o se elimino.");
-       exit(1); //salida
+       exit(1); 
     }
 
     fread(regPro, sizeof(profesionales), 50, arch);
@@ -387,7 +387,7 @@ void ranking()
                                                  //numPro: define la cantidad de elementos que tiene mi vector. 
     fclose(arch);
 
-    arch = fopen("Turnos.dat", "rb"); // arch PUNTEROTUR
+    arch = fopen("Turnos.dat", "rb"); 
 
     if (arch == NULL)
     {

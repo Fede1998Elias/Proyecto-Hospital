@@ -49,7 +49,7 @@ struct turnos{
 	char detalleAtencion[380];	
 };
 
-void iniciarSesion(FILE *PUNTERORECEP, bool &inicio); /* bool &inicio: la pasamos como parametro por referencia.*/
+void iniciarSesion(FILE *PUNTERORECEP, bool &inicio); 
 void registrarPaciente(	FILE *PUNTEROPAC);
 void registrarTurno(FILE *PUNTEROTURNO);
 void listar(FILE *PUNTEROPRO,FILE *PUNTEROTURNO);
@@ -317,8 +317,8 @@ void registrarTurno(FILE *PUNTEROTURNO)
 		
 		if(bandera1==1)
 		{
-			turno.idPro=buscar; /*id*/
-			turno.dniPaciente=buscarDni; /*dni*/
+			turno.idPro=buscar; 
+			turno.dniPaciente=buscarDni; 
 			printf("\nIngrese la fecha del turno\n");
 			printf("Ingrese el dia: ");
 			scanf("%d",&turno.fecha.dia);
@@ -326,8 +326,8 @@ void registrarTurno(FILE *PUNTEROTURNO)
 			scanf("%d",&turno.fecha.mes);
 			printf("Ingrese el anio: ");
 			scanf("%d",&turno.fecha.anio);
-			strcpy(turno.detalleAtencion,"Vacio");  /*se muestra vacio en el campo turno.detalleAtencion*/
-			fwrite(&turno,sizeof(turnos),1,PUNTEROTURNO);  /*ESCRIBO LOS CAMBIOS*/
+			strcpy(turno.detalleAtencion,"Vacio");  
+			fwrite(&turno,sizeof(turnos),1,PUNTEROTURNO);  
 			printf("\nEl turno ha sido registrado exitosamente!\n\n");
 		}
 	}	
@@ -335,7 +335,6 @@ void registrarTurno(FILE *PUNTEROTURNO)
 }
 
 
-/*preguntar*/
 void listar(FILE *PUNTEROPRO,FILE *PUNTEROTURNO)
 {
 	turnos tur;
@@ -377,6 +376,3 @@ void listar(FILE *PUNTEROPRO,FILE *PUNTEROTURNO)
     } 		
 }
 
-/* SE USAN 2 ARCHIVOS. EL ARCHIVO PROFESIONALES PARA EXTRAER LOS DATOS DEL PROFESIONAL.  ARCHIVOS TURNOS: EXTRAER Y COMPARAR FECHA A MOSTRAR 
-     COMPARACIÓN SOLO POR MES. UNA VEZ INGRESADO EL MES A BUSCAR, BUSCAR EN EL ARCHIVO DE TURNOS. TODOS AQUELLOS TURNOS QUE TENGAN ESE MES
-	  Y MOSTRAR EL ID DEL MEDICO  Y EL NOMBRE DEL MEDICO*/ /*Listar de Atenciones por Profesional y Fecha*/
